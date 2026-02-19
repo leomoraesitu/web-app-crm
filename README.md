@@ -129,5 +129,11 @@ Toda a documentação do projeto está disponível em `/docs`:
 
 ---
 
+## 📌 Histórico de Versões
+
+Consulte o histórico completo em [CHANGELOG.md](./CHANGELOG.md)
+
+---
+
 ## 📌 Status do Projeto
 🚧 Em desenvolvimento – versão 1.0
