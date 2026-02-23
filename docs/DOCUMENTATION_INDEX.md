@@ -1,112 +1,114 @@
-# 📚 Documentation Index -- Web App CRM
+# 📚 Documentation Index — Web App CRM
 
 Este documento centraliza e organiza toda a documentação técnica do
 projeto **Web App CRM (FlutterFlow + Firebase)**.
 
-Objetivo: garantir rastreabilidade, governança técnica e clareza
-arquitetural.
+Objetivo: garantir rastreabilidade, governança técnica e clareza arquitetural.
 
-------------------------------------------------------------------------
+---
 
 # 🗂 Estrutura da Documentação
 
-## 1️⃣ Visão Estratégica
+## 1️⃣ Arquitetura e Engenharia
 
-  ------------------------------------------------------------------------------
-  Documento                                  Descrição
-  ------------------------------------------ -----------------------------------
-  [00_visao-geral.md](./00_visao-geral.md)   Contexto do projeto, objetivos,
-                                             escopo e proposta de valor
+Localização: `/docs/architecture/`
 
-  [01_requisitos.md](./01_requisitos.md)     Requisitos funcionais e não
-                                             funcionais
-  ------------------------------------------------------------------------------
+| Documento | Descrição |
+|------------|------------|
+| [00_visao-geral.md](./architecture/00_visao-geral.md) | Contexto do projeto, objetivos e proposta de valor |
+| [01_requisitos.md](./architecture/01_requisitos.md) | Requisitos funcionais e não funcionais |
+| [02_ux-ui.md](./architecture/02_ux-ui.md) | Estratégia de UX/UI e experiência do usuário |
+| [03_arquitetura.md](./architecture/03_arquitetura.md) | Visão arquitetural e padrões adotados |
+| [04_modelagem-dados.md](./architecture/04_modelagem-dados.md) | Modelo conceitual, lógico e físico (Firestore) |
+| [05_seguranca-privacidade.md](./architecture/05_seguranca-privacidade.md) | Estratégias de segurança e isolamento multi-tenant |
+| [06_gestao-projeto.md](./architecture/06_gestao-projeto.md) | Metodologia, roadmap e organização ágil |
+| [DIAGRAMA_ARQUITETURAL.md](./architecture/DIAGRAMA_ARQUITETURAL.md) | Diagrama arquitetural detalhado |
 
-------------------------------------------------------------------------
+---
 
-## 2️⃣ Produto e Experiência
+## 2️⃣ Design e Experiência
 
-  -----------------------------------------------------------------------
-  Documento                           Descrição
-  ----------------------------------- -----------------------------------
-  [02_ux-ui.md](./02_ux-ui.md)        User flow, design system e
-                                      responsividade
+Localização: `/docs/design/`
 
-  -----------------------------------------------------------------------
+| Documento | Descrição |
+|------------|------------|
+| [README.md](./design/README.md) | Visão geral da documentação de design |
+| [PROTOTIPAGEM.md](./design/PROTOTIPAGEM.md) | Wireframes e validação de fluxos |
+| [USER_FLOW.md](./design/USER_FLOW.md) | Fluxos de navegação e autorização |
+| [RESPONSIVIDADE.md](./design/RESPONSIVIDADE.md) | Estratégia multi-dispositivo |
+| [DESIGN_SYSTEM.md](./design/DESIGN_SYSTEM.md) | Tokens, componentes e padronização visual |
+| [RASTREABILIDADE_REQUISITOS.md](./design/RASTREABILIDADE_REQUISITOS.md) | Matriz de rastreabilidade |
 
-------------------------------------------------------------------------
+### 🎨 Assets de Design
 
-## 3️⃣ Arquitetura e Engenharia
+Localização: `/docs/design/assets/`
 
-  --------------------------------------------------------------------------------------------------
-  Documento                                                      Descrição
-  -------------------------------------------------------------- -----------------------------------
-  [03_arquitetura.md](./03_arquitetura.md)                       Visão arquitetural e padrões
-                                                                 adotados
+- `prototipagem/low-fidelity/` → Wireframes (WF-*)
+- `prototipagem/high-fidelity/` → Design final (HF-*)
+- `brand/` → Identidade visual (BRAND-*)
+- `diagrams/` → Diagramas visuais do sistema
 
-  [04_modelagem-dados.md](./04_modelagem-dados.md)               Modelo conceitual, lógico e físico
-                                                                 (Firestore)
+---
 
-  [05_seguranca-privacidade.md](./05_seguranca-privacidade.md)   Estratégias de segurança e
-                                                                 isolamento multi-tenant
-  --------------------------------------------------------------------------------------------------
+## 3️⃣ Decisões Arquiteturais (ADRs)
 
-------------------------------------------------------------------------
+Localização: `/docs/decisions/`
 
-## 4️⃣ Gestão e Governança
+| Documento | Descrição |
+|------------|------------|
+| ADR-0001-multi-tenant.md | Estratégia de isolamento multiempresa por `companyId` |
 
-  ------------------------------------------------------------------------------------
-  Documento                                        Descrição
-  ------------------------------------------------ -----------------------------------
-  [06_gestao-projeto.md](./06_gestao-projeto.md)   Metodologia, roadmap e organização
-                                                   ágil
+Cada ADR documenta:
+- Contexto
+- Decisão tomada
+- Alternativas avaliadas
+- Consequências técnicas
 
-  [CHANGELOG.md](../CHANGELOG.md)                  Histórico de versões
-  ------------------------------------------------------------------------------------
+---
 
-------------------------------------------------------------------------
+## 4️⃣ Documentos Globais
 
-## 5️⃣ Decisões Arquiteturais (ADRs)
+| Documento | Localização |
+|------------|------------|
+| CHANGELOG.md | Raiz do projeto |
+| README.md | Raiz do projeto |
 
-Localizadas em:
-
-/docs/decisoes/
-
-Cada ADR documenta: - Contexto - Decisão tomada - Alternativas
-avaliadas - Consequências técnicas
-
-------------------------------------------------------------------------
+---
 
 # 🏛 Padrões de Documentação
 
--   Versionamento Semântico (SemVer)
--   Conventional Commits
--   Rastreabilidade entre requisitos → implementação → release
--   Multi-tenant por `companyId`
--   Governança baseada em boas práticas de Engenharia de Software
+- Versionamento Semântico (SemVer)
+- Conventional Commits
+- Rastreabilidade entre requisitos → implementação → release
+- Arquitetura Multi-tenant por `companyId`
+- Governança baseada em boas práticas de Engenharia de Software
+- Separação clara entre Arquitetura, Design e Decisões
 
-------------------------------------------------------------------------
+---
 
 # 📌 Fluxo Recomendado de Leitura
 
-1.  Visão Geral\
-2.  Requisitos\
-3.  UX/UI\
-4.  Arquitetura\
-5.  Modelagem de Dados\
-6.  Segurança\
-7.  Gestão do Projeto\
-8.  CHANGELOG
+1. 00_visao-geral  
+2. 01_requisitos  
+3. 02_ux-ui  
+4. 03_arquitetura  
+5. 04_modelagem-dados  
+6. 05_seguranca-privacidade  
+7.  PROTOTIPAGEM  
+8.  DESIGN_SYSTEM  
+9.  ADRs  
+10. CHANGELOG  
 
-------------------------------------------------------------------------
+---
 
 # 🚀 Objetivo do Projeto
 
 Este repositório foi estruturado como um case completo de engenharia
 aplicada a um CRM SaaS realista, demonstrando:
 
--   Arquitetura escalável\
--   Segurança e isolamento de dados\
--   Governança técnica\
--   Organização ágil\
--   Documentação estruturada
+- Arquitetura escalável
+- Segurança e isolamento de dados
+- Governança técnica
+- Organização ágil
+- Processo completo de UX (Wireframe → High Fidelity)
+- Documentação corporativa estruturada
