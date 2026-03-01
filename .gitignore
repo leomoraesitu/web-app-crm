@@ -12,6 +12,7 @@ generated_plugin_registrant.dart
 # Lock file (opcional: versionar só se quiser build reprodutível)
 pubspec.lock
 
+devtools_options.yaml
 # ============================================
 # FlutterFlow Export (Generated)
 # ============================================
