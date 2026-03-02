@@ -723,7 +723,7 @@ class _ColaboradorDetalhesWidgetState extends State<ColaboradorDetalhesWidget> {
                                           .fontStyle,
                                     ),
                                     color: FlutterFlowTheme.of(context)
-                                                      .primaryBackground,
+                                        .secondaryBackground,
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .titleSmall

@@ -395,7 +395,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                 color: FlutterFlowTheme.of(context).secondaryBackground,
               ),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 48.0, 0.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -1297,15 +1297,15 @@ class _DashboardWidgetState extends State<DashboardWidget>
                             color:
                                 FlutterFlowTheme.of(context).primaryBackground,
                           ),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 0.0, 0.0, 0.0),
-                                child: Text(
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 0.0, 0.0, 0.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
                                   'Resultados Gerais',
                                   style: FlutterFlowTheme.of(context)
                                       .headlineLarge
@@ -1327,11 +1327,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                             .fontStyle,
                                       ),
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 0.0, 0.0, 0.0),
-                                child: Text(
+                                Text(
                                   'Leads e vendas em determinado período',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyLarge
@@ -1357,8 +1353,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                             .fontStyle,
                                       ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ).animateOnPageLoad(
                             animationsMap['containerOnPageLoadAnimation1']!),
@@ -2168,18 +2164,17 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                         color: FlutterFlowTheme.of(context)
                                             .primaryBackground,
                                       ),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 0.0, 0.0, 0.0),
-                                            child: Text(
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            8.0, 0.0, 0.0, 0.0),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
                                               'Resultados Gerais',
                                               style: FlutterFlowTheme.of(
                                                       context)
@@ -2207,12 +2202,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                             .fontStyle,
                                                   ),
                                             ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 0.0, 0.0, 0.0),
-                                            child: Text(
+                                            Text(
                                               'Leads e vendas em determinado período',
                                               style: FlutterFlowTheme.of(
                                                       context)
@@ -2246,8 +2236,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                             .fontStyle,
                                                   ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ).animateOnPageLoad(animationsMap[
                                         'containerOnPageLoadAnimation8']!),
