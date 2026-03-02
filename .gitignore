@@ -1,85 +1,85 @@
-============================================
+# ============================================
+# Flutter / Dart
+# ============================================
+.dart_tool/
+.packages
+.pub/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+generated_plugin_registrant.dart
+devtools_options.yaml
 
-Flutter / Dart
-
-============================================
-
-.dart_tool/ .packages .pub/ build/ .flutter-plugins
-.flutter-plugins-dependencies generated_plugin_registrant.dart
+# Lock file (opcional: versionar só se quiser build reprodutível)
 pubspec.lock
 
-============================================
-
-FlutterFlow Export (Generated)
-
-============================================
-
+# ============================================
+# FlutterFlow Export (Generated)
+# ============================================
 flutter_export_environment.sh
 
-============================================
+# ============================================
+# Android
+# ============================================
+android/.gradle/
+android/app/debug/
+android/app/profile/
+android/app/release/
+android/local.properties
+android/key.properties
+*.keystore
+**/*.jks
 
-Android
-
-============================================
-
-android/.gradle/ android/app/debug/ android/app/profile/
-android/app/release/ android/local.properties /android/key.properties
-/*.keystore **/*.jks
-
-============================================
-
-iOS
-
-============================================
-
-ios/Flutter/Flutter.framework ios/Flutter/App.framework
-ios/Flutter/ephemeral/ ios/Pods/ ios/Runner.xcworkspace/ ios/.symlinks/
+# ============================================
+# iOS
+# ============================================
+ios/Flutter/Flutter.framework
+ios/Flutter/App.framework
+ios/Flutter/ephemeral/
+ios/Pods/
+ios/Runner.xcworkspace/
+ios/.symlinks/
 **/GoogleService-Info.plist
 
-============================================
+# ============================================
+# Firebase (Sensitive Files)
+# ============================================
+google-services.json
+firebase_dev.json
+firebase_prod.json
+.env
+.env.*
 
-Firebase (Sensitive Files)
+# ============================================
+# VS Code / IDEs
+# ============================================
+.vscode/
+.idea/
+*.iml
 
-============================================
+# ============================================
+# OS Files
+# ============================================
+.DS_Store
+Thumbs.db
 
-google-services.json firebase_dev.json firebase_prod.json .env .env.*
+# ============================================
+# Logs / Test Evidence
+# ============================================
+*.log
+qa/test-evidence/
+docs/qa/test-evidence/
 
-============================================
+# ============================================
+# Build Outputs
+# ============================================
+**/flutter_assets/
+**/app.flx
+**/app-release.apk
+**/app-release.aab
 
-VS Code / IDEs
-
-============================================
-
-.vscode/ .idea/ *.iml
-
-============================================
-
-OS Files
-
-============================================
-
-.DS_Store Thumbs.db
-
-============================================
-
-Logs / Test Evidence
-
-============================================
-
-*.log qa/test-evidence/ docs/qa/test-evidence/
-
-============================================
-
-Build Outputs
-
-============================================
-
-/flutter_assets/ /app.flx /app-release.apk /app-release.aab
-
-============================================
-
-Coverage
-
-============================================
-
-coverage/ lcov.info
+# ============================================
+# Coverage
+# ============================================
+coverage/
+lcov.info
