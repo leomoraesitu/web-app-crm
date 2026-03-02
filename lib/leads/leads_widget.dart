@@ -116,7 +116,7 @@ class _LeadsWidgetState extends State<LeadsWidget>
                 color: FlutterFlowTheme.of(context).secondaryBackground,
               ),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 48.0, 0.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -835,7 +835,7 @@ class _LeadsWidgetState extends State<LeadsWidget>
                         FlutterFlowTheme.of(context).secondaryBackground,
                     backgroundLeads: FlutterFlowTheme.of(context).primary,
                     backgroundMeuTime:
-                        FlutterFlowTheme.of(context).primaryBackground,
+                        FlutterFlowTheme.of(context).secondaryBackground,
                   ),
                 ),
               if (valueOrDefault<bool>(
@@ -1006,15 +1006,15 @@ class _LeadsWidgetState extends State<LeadsWidget>
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 0.0, 0.0, 0.0),
-                                  child: Text(
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 0.0, 0.0, 0.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
                                     'Kanban - Leads',
                                     style: FlutterFlowTheme.of(context)
                                         .headlineLarge
@@ -1037,11 +1037,7 @@ class _LeadsWidgetState extends State<LeadsWidget>
                                                   .fontStyle,
                                         ),
                                   ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 0.0, 0.0, 0.0),
-                                  child: Text(
+                                  Text(
                                     'Leads por status',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
@@ -1069,12 +1065,12 @@ class _LeadsWidgetState extends State<LeadsWidget>
                                                   .fontStyle,
                                         ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 12.0, 0.0),
+                                  0.0, 0.0, 16.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   await showModalBottomSheet(

@@ -1450,8 +1450,8 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                               .titleSmall
                                                                               .fontStyle,
                                                                         ),
-                                                                        color: Colors
-                                                                            .white,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .secondaryBackground,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight: FlutterFlowTheme.of(context)

@@ -115,7 +115,7 @@ class _TimeWidgetState extends State<TimeWidget> with TickerProviderStateMixin {
                 color: FlutterFlowTheme.of(context).secondaryBackground,
               ),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 48.0, 0.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -261,7 +261,7 @@ class _TimeWidgetState extends State<TimeWidget> with TickerProviderStateMixin {
                         highlightColor: Colors.transparent,
                         onTap: () async {
                           context.pushNamed(
-                            TimeWidget.routeName,
+                            LeadsWidget.routeName,
                             extra: <String, dynamic>{
                               '__transition_info__': TransitionInfo(
                                 hasTransition: true,
@@ -1013,15 +1013,15 @@ class _TimeWidgetState extends State<TimeWidget> with TickerProviderStateMixin {
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 0.0, 0.0, 0.0),
-                                  child: Text(
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 0.0, 0.0, 0.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
                                     'Minha equipe',
                                     style: FlutterFlowTheme.of(context)
                                         .headlineLarge
@@ -1044,11 +1044,7 @@ class _TimeWidgetState extends State<TimeWidget> with TickerProviderStateMixin {
                                                   .fontStyle,
                                         ),
                                   ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 0.0, 0.0, 0.0),
-                                  child: Text(
+                                  Text(
                                     'Gestão Colaboradores por time',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
@@ -1076,12 +1072,12 @@ class _TimeWidgetState extends State<TimeWidget> with TickerProviderStateMixin {
                                                   .fontStyle,
                                         ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 12.0, 0.0),
+                                  0.0, 0.0, 16.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   await showModalBottomSheet(

@@ -531,7 +531,8 @@ class _MeuPerfilWidgetState extends State<MeuPerfilWidget> {
                                           .titleSmall
                                           .fontStyle,
                                     ),
-                                    color: Colors.white,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .titleSmall
