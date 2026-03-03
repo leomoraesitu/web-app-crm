@@ -19,6 +19,23 @@ Este projeto já possui deploy público ativo.
 
 ---
 
+## 🖥 Preview da Aplicação
+
+### Dashboard (Desktop)
+
+<img src="docs/imgs/screenshots/dashboard-desktop.png" width="50%">
+
+### Kanban
+
+<img src="docs/imgs/screenshots/kanban.png" width="50%">
+
+### Mobile View
+
+<img src="docs/imgs/screenshots/mobile.png" width="12%">
+
+
+---
+
 ## 🧪 Ambiente
 
 Versão publicada atualmente corresponde à Sprint 3 (UI consolidada).
@@ -142,6 +159,7 @@ A documentação completa está estruturada em `/docs`, incluindo:
 - Segurança
 - ADRs
 - Gestão do Projeto
+- QA
 
 ---
 

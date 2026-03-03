@@ -66,9 +66,9 @@ Thumbs.db
 # ============================================
 # Logs / Test Evidence
 # ============================================
-*.log
-qa/test-evidence/
-docs/qa/test-evidence/
+#*.log
+#qa/test-evidence/
+#docs/qa/test-evidence/
 
 # ============================================
 # Build Outputs
