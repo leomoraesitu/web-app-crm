@@ -1,139 +1,186 @@
-# Web App CRM – FlutterFlow & Firebase
+# Web App CRM
+### Multi-tenant SaaS CRM | FlutterFlow + Firebase
 
-## 📖 Visão Geral
-Aplicação web CRM multiempresa (SaaS) desenvolvida com FlutterFlow e Firebase, focada em organização de leads, gestão de times comerciais e visualização de funil de vendas via Kanban e Dashboard.
-
-Projeto criado com foco em:
-- Boas práticas de Engenharia de Software
-- UX/UI responsivo
-- Segurança e isolamento de dados (multi-tenant)
-- Arquitetura escalável NoSQL
-- Metodologias Ágeis e governança técnica
+[![Live Web](https://img.shields.io/badge/Live_Web-Online-success?style=for-the-badge)](https://webappcrm-leomoraesitu.flutterflow.app)
+[![Sprint 3](https://img.shields.io/badge/Sprint_3-Completed-6f42c1?style=for-the-badge)]
+[![Platform](https://img.shields.io/badge/Platform-Web_+_Android-blue?style=for-the-badge)]
+[![Architecture](https://img.shields.io/badge/Architecture-Multi--Tenant-orange?style=for-the-badge)]
 
 ---
 
-## 🎯 Problema
-Pequenas e médias equipes comerciais enfrentam dificuldades em:
-- Centralizar leads
-- Padronizar processos de vendas
-- Controlar permissões por perfil
-- Visualizar métricas de desempenho em tempo real
+## 🚀 Aplicação Publicada
+
+🌐 **Versão Web (Produção)**  
+👉 https://webappcrm-leomoraesitu.flutterflow.app
+
+📦 **APK Android disponível na aba Releases**
+
+Este projeto já possui deploy público ativo.
 
 ---
 
-## 💡 Solução Proposta
-Um CRM web multiempresa com:
-- Autenticação segura
-- Dashboard com indicadores
-- Kanban de vendas
-- Gestão de leads
-- Gestão de colaboradores e permissões
+## 🖥 Preview da Aplicação
+
+### Dashboard (Desktop)
+
+<img src="docs/imgs/screenshots/dashboard-desktop.png" width="50%">
+
+### Kanban
+
+<img src="docs/imgs/screenshots/kanban.png" width="50%">
+
+### Mobile View
+
+<img src="docs/imgs/screenshots/mobile.png" width="12%">
+
 
 ---
 
-## 🧩 Funcionalidades (v1)
-- Login e autenticação
-- Cadastro e edição de leads
-- Kanban por status
-- Dashboard com métricas
-- Gestão de equipe (admin)
-- Isolamento de dados por empresa
+## 🧪 Ambiente
+
+Versão publicada atualmente corresponde à Sprint 3 (UI consolidada).
+Integração completa com Firestore será liberada na Sprint 4.
 
 ---
 
-## 🛠️ Stack Tecnológica
-- Frontend: FlutterFlow
-- Backend: Firebase
-  - Authentication
-  - Firestore
-  - Storage
-- Metodologia: Ágil (Kanban)
-- Design: UI responsivo (desktop/tablet/mobile)
+## 🏢 Sobre o Produto
+
+Web App CRM é uma aplicação SaaS multiempresa desenvolvida para estruturar e escalar processos comerciais de pequenas e médias equipes.
+
+O sistema oferece:
+
+- Dashboard estratégico
+- Gestão visual de leads
+- Estrutura Kanban
+- Controle de acesso por perfil (RBAC)
+- Isolamento completo de dados por empresa (multi-tenant)
+
+Arquitetado com foco em escalabilidade, segurança e governança técnica.
 
 ---
 
-## 🧠 Arquitetura
+## 🎯 Proposta de Valor
+
+Resolve três problemas críticos:
+
+- Falta de padronização do funil
+- Baixa visibilidade de métricas
+- Risco de acesso indevido entre empresas
+
+O modelo multi-tenant baseado em `companyId` garante isolamento total de dados.
+
+---
+
+## 🧩 Funcionalidades Implementadas
+
+### 🔐 Autenticação
+- Login
+- Cadastro
+- Estrutura preparada para controle de sessão
+
+### 📊 Dashboard
+- Layout responsivo
+- Gráficos estruturados
+- Tabelas organizadas
+
+### 📌 Kanban
+- Estrutura visual pronta
+- Organização por status
+- Base preparada para integração Firestore
+
+### 👥 Gestão de Interface
+- Menu colapsável
+- Desktop / Tablet / Mobile
+- Dark & Light Mode
+- Componentização avançada
+
+---
+
+## 🏗 Arquitetura Técnica
+
+Arquitetura SaaS baseada em:
+
+- FlutterFlow (Frontend Web + Mobile)
+- Firebase Authentication
+- Cloud Firestore (NoSQL)
+- RBAC (Role-Based Access Control)
 - Multi-tenant via `companyId`
-- Firestore estruturado por entidades
-- Regras de segurança por papel (role-based access)
 
-📄 Detalhes completos em: `/docs/03_arquitetura.md`
+📄 Detalhes completos em `/docs/03_arquitetura.md`
 
 ---
 
-## 📊 Gestão de Projeto
+## 📈 Roadmap do Produto
 
-Este projeto é conduzido seguindo princípios de Engenharia de Software e metodologias ágeis adaptadas para projeto individual.
+| Fase | Status |
+|------|--------|
+| Sprint 1 – Planejamento | ✅ |
+| Sprint 2 – Prototipagem | ✅ |
+| Sprint 3 – UI Executável | ✅ |
+| Sprint 4 – Integração Firestore | 🔜 |
+| Sprint 5 – Segurança Produção | 🔜 |
+| Sprint 6 – Deploy Final | 🔜 |
 
-### 🧭 Metodologia
-- Framework: Kanban
-- Gestão visual via Trello
-- Organização por épicos, features e tasks
-- Priorização baseada em valor de negócio
+---
 
-### 🔄 Ciclo de Desenvolvimento
-1. Levantamento de requisito
-2. Modelagem (UX + Dados)
-3. Implementação
-4. Validação e testes
-5. Documentação
-6. Versionamento
+## 📊 Gestão de Produto
 
-### 🗂️ Board do Projeto
-Trello oficial:
+- Metodologia: Kanban
+- Story Points definidos
+- Definition of Done aplicada
+- Versionamento SemVer
+- Conventional Commits
+- ADRs documentados
+
+Board oficial:
 https://trello.com/invite/b/698b8510a32a13b502ffda3d/ATTIc658d790b2083b685dcbd9f0532def2c3CC9D074/web-app-crm-flutterflow-firebase
 
 ---
 
-## 🏛️ Governança Técnica
+## 🏛 Governança Técnica
 
-O projeto segue práticas estruturadas de governança visando escalabilidade, segurança e rastreabilidade.
-
-### 📌 Estrutura de Versionamento
-- Commits padronizados (Conventional Commits)
-- Controle de versões via GitHub
-- Registro de alterações em `CHANGELOG.md`
-
-### 🔐 Segurança
-- Isolamento multi-tenant via `companyId`
-- Controle de acesso por papel (role-based access)
-- Regras de segurança no Firestore
-
-### 📐 Arquitetura e Padrões
-- Separação clara entre UI, lógica e dados
-- Componentização no FlutterFlow
-- Convenções de nomenclatura padronizadas
-
-### 📊 Qualidade
+- Isolamento multi-tenant
+- Controle de acesso por papel
+- Separação clara entre UI e dados
+- Versionamento estruturado
 - Documentação centralizada em `/docs`
-- ADRs para decisões arquiteturais
-- Critérios de pronto (Definition of Done)
 
 ---
 
-## 📂 Documentação
-Toda a documentação do projeto está disponível em `/docs`:
+## 📂 Documentação Técnica
+
+A documentação completa está estruturada em `/docs`, incluindo:
+
+- Visão Estratégica
 - Requisitos
-- UX/UI
+- Processo de Prototipagem
 - Arquitetura
 - Modelagem de Dados
 - Segurança
+- ADRs
 - Gestão do Projeto
+- QA
 
 ---
 
-## 🚀 Demonstração
-- FlutterFlow: https://app.flutterflow.io/project/web-app-c-r-m-mfus98
-- Firebase (dev/prod): 
-- Board do Projeto: https://trello.com/invite/b/698b8510a32a13b502ffda3d/ATTIc658d790b2083b685dcbd9f0532def2c3CC9D074/web-app-crm-flutterflow-firebase
+## 📦 Distribuição
+
+- 🌐 Web Deploy ativo
+- 📱 APK Android disponível nas Releases
 
 ---
 
-## 📌 Histórico de Versões
+## 📌 Status Atual
 
-Consulte o histórico completo em [CHANGELOG.md](./CHANGELOG.md)
+🟢 Produto publicado (Web)  
+🟡 UI consolidada  
+🔜 Integração completa com backend  
+🔐 Preparação para regras de segurança produção  
 
 ---
 
-## 📌 Status do Projeto
-🚧 Em desenvolvimento – versão 1.0
+## 📄 Histórico de Versões
+
+Consulte o histórico completo em:
+
+👉 [CHANGELOG.md](./CHANGELOG.md)

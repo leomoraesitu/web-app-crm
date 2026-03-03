@@ -8,11 +8,11 @@ build/
 .flutter-plugins
 .flutter-plugins-dependencies
 generated_plugin_registrant.dart
+devtools_options.yaml
 
 # Lock file (opcional: versionar só se quiser build reprodutível)
 pubspec.lock
 
-devtools_options.yaml
 # ============================================
 # FlutterFlow Export (Generated)
 # ============================================
@@ -28,7 +28,7 @@ android/app/release/
 android/local.properties
 android/key.properties
 *.keystore
-*.jks
+**/*.jks
 
 # ============================================
 # iOS
@@ -66,9 +66,9 @@ Thumbs.db
 # ============================================
 # Logs / Test Evidence
 # ============================================
-*.log
-qa/test-evidence/
-docs/qa/test-evidence/
+#*.log
+#qa/test-evidence/
+#docs/qa/test-evidence/
 
 # ============================================
 # Build Outputs
