@@ -21,6 +21,12 @@ Este projeto possui deploy público ativo e distribuição Android via GitHub Re
 
 ---
 
+## 🎬 Demonstração Rápida
+
+<img src="docs/imgs/demo/webappcrm-demo.gif" width="50%">
+
+---
+
 ## 🖥 Preview da Aplicação
 
 ### Dashboard (Desktop)
