@@ -2,9 +2,10 @@
 ### Multi-tenant SaaS CRM | FlutterFlow + Firebase
 
 [![Live Web](https://img.shields.io/badge/Live_Web-Online-success?style=for-the-badge)](https://webappcrm-leomoraesitu.flutterflow.app)
-[![Sprint 3](https://img.shields.io/badge/Sprint_3-Completed-6f42c1?style=for-the-badge)]
-[![Platform](https://img.shields.io/badge/Platform-Web_+_Android-blue?style=for-the-badge)]
-[![Architecture](https://img.shields.io/badge/Architecture-Multi--Tenant-orange?style=for-the-badge)]
+[![Release](https://img.shields.io/badge/Release-v0.2.0-blue?style=for-the-badge)](https://github.com/leomoraesitu/web-app-crm/releases/tag/v0.2.0)
+![Sprint 3](https://img.shields.io/badge/Sprint_3-Completed-6f42c1?style=for-the-badge)
+![Platform](https://img.shields.io/badge/Platform-Web_+_Android-blue?style=for-the-badge)
+![Architecture](https://img.shields.io/badge/Architecture-Multi--Tenant-orange?style=for-the-badge)
 
 ---
 
@@ -13,9 +14,10 @@
 🌐 **Versão Web (Produção)**  
 👉 https://webappcrm-leomoraesitu.flutterflow.app
 
-📦 **APK Android disponível na aba Releases**
+📦 **APK Android disponível na Release v0.2.0**  
+👉 https://github.com/leomoraesitu/web-app-crm/releases/tag/v0.2.0
 
-Este projeto já possui deploy público ativo.
+Este projeto possui deploy público ativo e distribuição Android via GitHub Releases.
 
 ---
 
@@ -33,13 +35,15 @@ Este projeto já possui deploy público ativo.
 
 <img src="docs/imgs/screenshots/mobile.png" width="12%">
 
-
 ---
 
 ## 🧪 Ambiente
 
-Versão publicada atualmente corresponde à Sprint 3 (UI consolidada).
-Integração completa com Firestore será liberada na Sprint 4.
+A versão publicada atualmente corresponde à **v0.2.0 (Sprint 3 – UI Consolidada)**.
+
+- Camada de interface finalizada
+- Estrutura responsiva validada
+- Base pronta para integração Firestore (Sprint 4)
 
 ---
 
@@ -71,7 +75,7 @@ O modelo multi-tenant baseado em `companyId` garante isolamento total de dados.
 
 ---
 
-## 🧩 Funcionalidades Implementadas
+## 🧩 Funcionalidades Implementadas (v0.2.0)
 
 ### 🔐 Autenticação
 - Login
@@ -93,6 +97,7 @@ O modelo multi-tenant baseado em `companyId` garante isolamento total de dados.
 - Desktop / Tablet / Mobile
 - Dark & Light Mode
 - Componentização avançada
+- Animações aplicadas
 
 ---
 
@@ -116,10 +121,10 @@ Arquitetura SaaS baseada em:
 |------|--------|
 | Sprint 1 – Planejamento | ✅ |
 | Sprint 2 – Prototipagem | ✅ |
-| Sprint 3 – UI Executável | ✅ |
+| Sprint 3 – UI Executável (v0.2.0) | ✅ |
 | Sprint 4 – Integração Firestore | 🔜 |
-| Sprint 5 – Segurança Produção | 🔜 |
-| Sprint 6 – Deploy Final | 🔜 |
+| Sprint 5 – Regras de Segurança Produção | 🔜 |
+| Sprint 6 – Deploy Final Estável (v1.0.0) | 🔜 |
 
 ---
 
@@ -131,6 +136,7 @@ Arquitetura SaaS baseada em:
 - Versionamento SemVer
 - Conventional Commits
 - ADRs documentados
+- Releases versionadas no GitHub
 
 Board oficial:
 https://trello.com/invite/b/698b8510a32a13b502ffda3d/ATTIc658d790b2083b685dcbd9f0532def2c3CC9D074/web-app-crm-flutterflow-firebase
@@ -144,6 +150,7 @@ https://trello.com/invite/b/698b8510a32a13b502ffda3d/ATTIc658d790b2083b685dcbd9f
 - Separação clara entre UI e dados
 - Versionamento estruturado
 - Documentação centralizada em `/docs`
+- Histórico evolutivo rastreável via Releases
 
 ---
 
@@ -166,15 +173,16 @@ A documentação completa está estruturada em `/docs`, incluindo:
 ## 📦 Distribuição
 
 - 🌐 Web Deploy ativo
-- 📱 APK Android disponível nas Releases
+- 📱 APK Android disponível na Release v0.2.0
+- 🏷 Versionamento oficial via GitHub Releases
 
 ---
 
 ## 📌 Status Atual
 
-🟢 Produto publicado (Web)  
-🟡 UI consolidada  
-🔜 Integração completa com backend  
+🟢 Produto publicado (Web + APK)  
+🟡 UI consolidada (v0.2.0)  
+🔜 Integração completa com backend (Sprint 4)  
 🔐 Preparação para regras de segurança produção  
 
 ---
@@ -183,4 +191,5 @@ A documentação completa está estruturada em `/docs`, incluindo:
 
 Consulte o histórico completo em:
 
-👉 [CHANGELOG.md](./CHANGELOG.md)
+👉 [CHANGELOG.md](./CHANGELOG.md)  
+👉 [Release v0.2.0](https://github.com/leomoraesitu/web-app-crm/releases/tag/v0.2.0)
