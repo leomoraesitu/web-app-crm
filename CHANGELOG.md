@@ -13,12 +13,14 @@ Este projeto utiliza *Semantic Versioning (SemVer)*.
 - Integração completa com Firestore (CRUD funcional).
 - Regras de segurança com RBAC e isolamento multi-tenant.
 - Separação formal de ambientes (Dev / Prod).
+- Controle de acesso com Custom Claims.
 - Deploy produtivo com regras consolidadas.
+- Otimização de consultas e índices Firestore.
 
 ---
 
 ## [0.2.0] — Implementação de Telas (Sprint 3)
-Data: 2026-03-XX
+Data: 2026-03-03
 
 ### Added
 - Design System aplicado às telas reais.
@@ -31,12 +33,13 @@ Data: 2026-03-XX
 - Dark Mode e Light Mode.
 - Animações no FlutterFlow.
 - Deploy Web publicado.
-- Geração de APK Android.
+- Distribuição de APK Android via GitHub Releases.
 
 ### Changed
 - Conversão da prototipagem em UI funcional responsiva.
 - Organização e componentização das telas.
 - Consolidação da base visual para integração backend.
+- Atualização do README com badges e link para release.
 
 ### Notes
 Esta versão consolida a camada de interface (UI) e prepara a aplicação para integração completa com Firestore na Sprint 4.
@@ -75,5 +78,7 @@ Data: 2026-02-26
 
 # Links de Comparação
 
+[Unreleased]: https://github.com/leomoraesitu/web-app-crm/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/leomoraesitu/web-app-crm/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/leomoraesitu/web-app-crm/compare/v0.0.1...v0.1.0
 [0.0.1]: https://github.com/leomoraesitu/web-app-crm/releases/tag/v0.0.1
