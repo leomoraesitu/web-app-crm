@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/components/grafico_leads_widget.dart';
 import '/components/menu_side_bar_expandido_widget.dart';
 import '/components/menu_side_bar_reduzido_widget.dart';
@@ -11,6 +12,8 @@ import 'package:flutter/material.dart';
 class DashboardModel extends FlutterFlowModel<DashboardWidget> {
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Backend Call - Read Document] action in Dashboard widget.
+  EmpresasRecord? empresaDoc;
   // Model for MenuSideBarTablet component.
   late MenuSideBarTabletModel menuSideBarTabletModel;
   // Model for MenuSideBarReduzido component.
