@@ -202,7 +202,6 @@ class _TabelaTimeDashWidgetState extends State<TabelaTimeDashWidget> {
                 children: [
                   Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: 320.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
