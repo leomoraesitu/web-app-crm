@@ -1236,6 +1236,8 @@ class _LeadsWidgetState extends State<LeadsWidget>
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 16.0, 0.0),
                                     child: FFButtonWidget(
+                                      key: ValueKey(
+                                          FFAppConstants.kLeadCreateButton),
                                       onPressed: () async {
                                         await showModalBottomSheet(
                                           isScrollControlled: true,

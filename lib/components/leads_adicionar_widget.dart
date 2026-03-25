@@ -170,6 +170,7 @@ class _LeadsAdicionarWidgetState extends State<LeadsAdicionarWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 24.0, 0.0, 8.0),
                           child: TextFormField(
+                            key: ValueKey(FFAppConstants.kLeadNameInput),
                             controller: _model.nomeTextController,
                             focusNode: _model.nomeFocusNode,
                             onChanged: (_) => EasyDebounce.debounce(
@@ -345,6 +346,7 @@ class _LeadsAdicionarWidgetState extends State<LeadsAdicionarWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 8.0, 0.0, 8.0),
                           child: TextFormField(
+                            key: ValueKey(FFAppConstants.kLeadEmailInput),
                             controller: _model.emailTextController,
                             focusNode: _model.emailFocusNode,
                             onChanged: (_) => EasyDebounce.debounce(
@@ -520,6 +522,7 @@ class _LeadsAdicionarWidgetState extends State<LeadsAdicionarWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 8.0, 0.0, 8.0),
                           child: TextFormField(
+                            key: ValueKey(FFAppConstants.kLeadPhoneInput),
                             controller: _model.telefoneTextController,
                             focusNode: _model.telefoneFocusNode,
                             onChanged: (_) => EasyDebounce.debounce(
@@ -699,6 +702,7 @@ class _LeadsAdicionarWidgetState extends State<LeadsAdicionarWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 8.0, 0.0, 8.0),
                           child: TextFormField(
+                            key: ValueKey(FFAppConstants.kLeadDescriptionInput),
                             controller: _model.descricaoTextController,
                             focusNode: _model.descricaoFocusNode,
                             onChanged: (_) => EasyDebounce.debounce(
@@ -877,8 +881,10 @@ class _LeadsAdicionarWidgetState extends State<LeadsAdicionarWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 8.0, 0.0, 8.0),
                           child: FlutterFlowDropDown<String>(
+                            key: ValueKey(FFAppConstants.kLeadSourceDropdown),
                             controller: _model.dropDownFonteValueController ??=
                                 FormFieldController<String>(null),
+                            optionsHasValueKeys: true,
                             options: [
                               'Instagram',
                               'Email',
@@ -1010,6 +1016,7 @@ class _LeadsAdicionarWidgetState extends State<LeadsAdicionarWidget> {
                           ),
                         ),
                         FFButtonWidget(
+                          key: ValueKey(FFAppConstants.kLeadSaveButton),
                           onPressed: ((_model.isValidName == false) ||
                                   (_model.isValidEmail == false) ||
                                   (_model.isValidPhone == false) ||

@@ -815,6 +815,8 @@ class _ColaboradorDetalhesWidgetState extends State<ColaboradorDetalhesWidget>
                                 true)
                               AuthUserStreamWidget(
                                 builder: (context) => FFButtonWidget(
+                                  key: ValueKey(FFAppConstants
+                                      .kTeamDeleteCollaboratorButton),
                                   onPressed: () async {
                                     var confirmDialogResponse =
                                         await showDialog<bool>(

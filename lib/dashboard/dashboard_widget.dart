@@ -1352,18 +1352,20 @@ class _DashboardWidgetState extends State<DashboardWidget>
                               FlutterFlowTheme.of(context).secondaryText,
                           textColorMeuTime:
                               FlutterFlowTheme.of(context).secondaryText,
-                          backgroundDash:
-                              Theme.of(context).brightness == Brightness.dark
-                                  ? valueOrDefault<Color>(
-                                      functions.hexToColor(
-                                          FFAppState().effectiveSecondaryHex),
-                                      FlutterFlowTheme.of(context).secondary,
-                                    )
-                                  : valueOrDefault<Color>(
-                                      functions.hexToColor(
-                                          FFAppState().effectivePrimaryHex),
-                                      FlutterFlowTheme.of(context).primary,
-                                    ),
+                          backgroundDash: valueOrDefault<Color>(
+                            Theme.of(context).brightness == Brightness.dark
+                                ? valueOrDefault<Color>(
+                                    functions.hexToColor(
+                                        FFAppState().effectiveSecondaryHex),
+                                    FlutterFlowTheme.of(context).secondary,
+                                  )
+                                : valueOrDefault<Color>(
+                                    functions.hexToColor(
+                                        FFAppState().effectivePrimaryHex),
+                                    FlutterFlowTheme.of(context).primary,
+                                  ),
+                            FlutterFlowTheme.of(context).primary,
+                          ),
                           backgroundLeads:
                               FlutterFlowTheme.of(context).secondaryBackground,
                           backgroundMeuTime:

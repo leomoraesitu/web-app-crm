@@ -390,6 +390,9 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                       .infinity,
                                                                   child:
                                                                       TextFormField(
+                                                                    key: ValueKey(
+                                                                        FFAppConstants
+                                                                            .kLoginEmailInput),
                                                                     controller:
                                                                         _model
                                                                             .emailTextController,
@@ -606,6 +609,9 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                       .infinity,
                                                                   child:
                                                                       TextFormField(
+                                                                    key: ValueKey(
+                                                                        FFAppConstants
+                                                                            .kLoginPasswordInput),
                                                                     controller:
                                                                         _model
                                                                             .passwordTextController,
@@ -810,6 +816,9 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                             16.0),
                                                                 child:
                                                                     FFButtonWidget(
+                                                                  key: ValueKey(
+                                                                      FFAppConstants
+                                                                          .kLoginSubmitButton),
                                                                   onPressed: ((_model.isValidPassword ==
                                                                               false) ||
                                                                           (_model.isValidEmail ==
@@ -945,6 +954,9 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                             16.0),
                                                                 child:
                                                                     FFButtonWidget(
+                                                                  key: ValueKey(
+                                                                      FFAppConstants
+                                                                          .kLoginForgotPasswordButton),
                                                                   onPressed: (_model
                                                                               .isValidEmail ==
                                                                           false)
@@ -1153,6 +1165,9 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                 double.infinity,
                                                             child:
                                                                 TextFormField(
+                                                              key: ValueKey(
+                                                                  FFAppConstants
+                                                                      .kRegisterNameInput),
                                                               controller: _model
                                                                   .nameCreateTextController,
                                                               focusNode: _model
@@ -1411,6 +1426,9 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                 double.infinity,
                                                             child:
                                                                 TextFormField(
+                                                              key: ValueKey(
+                                                                  FFAppConstants
+                                                                      .kRegisterEmailInput),
                                                               controller: _model
                                                                   .emailCreateTextController,
                                                               focusNode: _model
@@ -1672,6 +1690,9 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                 double.infinity,
                                                             child:
                                                                 TextFormField(
+                                                              key: ValueKey(
+                                                                  FFAppConstants
+                                                                      .kRegisterPasswordInput),
                                                               controller: _model
                                                                   .passwordCreateTextController,
                                                               focusNode: _model
@@ -1910,6 +1931,9 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                 double.infinity,
                                                             child:
                                                                 TextFormField(
+                                                              key: ValueKey(
+                                                                  FFAppConstants
+                                                                      .kRegisterConfirmPasswordInput),
                                                               controller: _model
                                                                   .passwordConfirmCreateTextController,
                                                               focusNode: _model
@@ -2147,6 +2171,9 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                       0.0,
                                                                       16.0),
                                                           child: FFButtonWidget(
+                                                            key: ValueKey(
+                                                                FFAppConstants
+                                                                    .kRegisterSubmitButton),
                                                             onPressed: ((_model
                                                                             .isValidPasswordConfirmCreate ==
                                                                         false) ||

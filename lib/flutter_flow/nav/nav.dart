@@ -84,6 +84,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               appStateNotifier.loggedIn ? DashboardWidget() : LoginWidget(),
         ),
         FFRoute(
+          name: TimeWidget.routeName,
+          path: TimeWidget.routePath,
+          builder: (context, params) => TimeWidget(),
+        ),
+        FFRoute(
           name: DashboardWidget.routeName,
           path: DashboardWidget.routePath,
           builder: (context, params) => DashboardWidget(),
@@ -92,11 +97,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: LeadsWidget.routeName,
           path: LeadsWidget.routePath,
           builder: (context, params) => LeadsWidget(),
-        ),
-        FFRoute(
-          name: TimeWidget.routeName,
-          path: TimeWidget.routePath,
-          builder: (context, params) => TimeWidget(),
         ),
         FFRoute(
           name: LoginWidget.routeName,
