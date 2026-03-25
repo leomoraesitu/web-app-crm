@@ -405,6 +405,8 @@ class _TabelaTimeWidgetState extends State<TabelaTimeWidget> {
                                     ).then((value) => safeSetState(() {}));
                                   },
                                   child: Container(
+                                    key: ValueKey(
+                                        FFAppConstants.kTeamCollaboratorButton),
                                     width: double.infinity,
                                     height: 50.0,
                                     decoration: BoxDecoration(

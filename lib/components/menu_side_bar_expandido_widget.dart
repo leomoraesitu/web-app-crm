@@ -183,6 +183,7 @@ class _MenuSideBarExpandidoWidgetState
                     );
                   },
                   child: Container(
+                    key: ValueKey(FFAppConstants.kMenuDashboardButton),
                     width: double.infinity,
                     height: 50.0,
                     decoration: BoxDecoration(
@@ -246,6 +247,7 @@ class _MenuSideBarExpandidoWidgetState
                     );
                   },
                   child: Container(
+                    key: ValueKey(FFAppConstants.kMenuLeadsButton),
                     width: double.infinity,
                     height: 50.0,
                     decoration: BoxDecoration(
@@ -309,6 +311,7 @@ class _MenuSideBarExpandidoWidgetState
                     );
                   },
                   child: Container(
+                    key: ValueKey(FFAppConstants.kMenuTeamButton),
                     width: double.infinity,
                     height: 50.0,
                     decoration: BoxDecoration(
@@ -374,6 +377,7 @@ class _MenuSideBarExpandidoWidgetState
                     ).then((value) => safeSetState(() {}));
                   },
                   child: Container(
+                    key: ValueKey(FFAppConstants.kMenuSettingsButton),
                     width: double.infinity,
                     height: 50.0,
                     decoration: BoxDecoration(
