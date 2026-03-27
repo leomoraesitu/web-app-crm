@@ -1,10 +1,13 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/components/meu_perfil_widget.dart';
 import '/components/minha_empresa_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'menu_side_bar_expandido_model.dart';
 export 'menu_side_bar_expandido_model.dart';
 
@@ -20,7 +23,9 @@ class MenuSideBarExpandidoWidget extends StatefulWidget {
     required this.backgroundDash,
     required this.backgroundLeads,
     required this.backgroundMeuTime,
-  });
+    String? pathLogo,
+  }) : this.pathLogo = pathLogo ??
+            'https://firebasestorage.googleapis.com/v0/b/web-app-crm-dev.firebasestorage.app/o/upload-image.png?alt=media&token=a695e7d2-6616-4162-be19-3e965ae84899';
 
   final Widget? iconDashbord;
   final Widget? iconLeads;
@@ -31,6 +36,7 @@ class MenuSideBarExpandidoWidget extends StatefulWidget {
   final Color? backgroundDash;
   final Color? backgroundLeads;
   final Color? backgroundMeuTime;
+  final String pathLogo;
 
   @override
   State<MenuSideBarExpandidoWidget> createState() =>
@@ -64,6 +70,8 @@ class _MenuSideBarExpandidoWidgetState
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Padding(
       padding: EdgeInsets.all(12.0),
       child: Container(
@@ -97,10 +105,11 @@ class _MenuSideBarExpandidoWidgetState
                   children: [
                     ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
-                      child: Image.asset(
-                        Theme.of(context).brightness == Brightness.dark
-                            ? 'assets/images/logo_branco.png'
-                            : 'assets/images/logo_nocode1.png',
+                      child: Image.network(
+                        valueOrDefault<String>(
+                          widget.pathLogo,
+                          'https://firebasestorage.googleapis.com/v0/b/web-app-crm-prod.firebasestorage.app/o/upload-image.png?alt=media&token=8805cabf-ecc6-4821-8435-415ad3728358',
+                        ),
                         width: 190.0,
                         height: 100.0,
                         fit: BoxFit.contain,
@@ -132,7 +141,20 @@ class _MenuSideBarExpandidoWidgetState
                           ),
                           child: Icon(
                             Icons.keyboard_arrow_left,
-                            color: FlutterFlowTheme.of(context).primary,
+                            color: valueOrDefault<Color>(
+                              Theme.of(context).brightness == Brightness.dark
+                                  ? valueOrDefault<Color>(
+                                      functions.hexToColor(
+                                          FFAppState().effectiveSecondaryHex),
+                                      FlutterFlowTheme.of(context).primary,
+                                    )
+                                  : valueOrDefault<Color>(
+                                      functions.hexToColor(
+                                          FFAppState().effectivePrimaryHex),
+                                      FlutterFlowTheme.of(context).primary,
+                                    ),
+                              FlutterFlowTheme.of(context).primary,
+                            ),
                             size: 23.0,
                           ),
                         ),
@@ -161,6 +183,7 @@ class _MenuSideBarExpandidoWidgetState
                     );
                   },
                   child: Container(
+                    key: ValueKey(FFAppConstants.kMenuDashboardButton),
                     width: double.infinity,
                     height: 50.0,
                     decoration: BoxDecoration(
@@ -224,6 +247,7 @@ class _MenuSideBarExpandidoWidgetState
                     );
                   },
                   child: Container(
+                    key: ValueKey(FFAppConstants.kMenuLeadsButton),
                     width: double.infinity,
                     height: 50.0,
                     decoration: BoxDecoration(
@@ -287,6 +311,7 @@ class _MenuSideBarExpandidoWidgetState
                     );
                   },
                   child: Container(
+                    key: ValueKey(FFAppConstants.kMenuTeamButton),
                     width: double.infinity,
                     height: 50.0,
                     decoration: BoxDecoration(
@@ -340,7 +365,7 @@ class _MenuSideBarExpandidoWidgetState
                   onTap: () async {
                     await showModalBottomSheet(
                       isScrollControlled: true,
-                      backgroundColor: Colors.transparent,
+                      backgroundColor: Color(0xE6000000),
                       enableDrag: false,
                       context: context,
                       builder: (context) {
@@ -352,6 +377,7 @@ class _MenuSideBarExpandidoWidgetState
                     ).then((value) => safeSetState(() {}));
                   },
                   child: Container(
+                    key: ValueKey(FFAppConstants.kMenuSettingsButton),
                     width: double.infinity,
                     height: 50.0,
                     decoration: BoxDecoration(
@@ -436,8 +462,25 @@ class _MenuSideBarExpandidoWidgetState
                                     width: 40.0,
                                     height: 40.0,
                                     decoration: BoxDecoration(
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
+                                      color: valueOrDefault<Color>(
+                                        Theme.of(context).brightness ==
+                                                Brightness.dark
+                                            ? valueOrDefault<Color>(
+                                                functions.hexToColor(
+                                                    FFAppState()
+                                                        .effectiveSecondaryHex),
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                              )
+                                            : valueOrDefault<Color>(
+                                                functions.hexToColor(
+                                                    FFAppState()
+                                                        .effectivePrimaryHex),
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                              ),
+                                        FlutterFlowTheme.of(context).primary,
+                                      ),
                                       borderRadius: BorderRadius.circular(24.0),
                                     ),
                                     child: Icon(
@@ -522,8 +565,25 @@ class _MenuSideBarExpandidoWidgetState
                                     width: 40.0,
                                     height: 40.0,
                                     decoration: BoxDecoration(
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
+                                      color: valueOrDefault<Color>(
+                                        Theme.of(context).brightness ==
+                                                Brightness.dark
+                                            ? valueOrDefault<Color>(
+                                                functions.hexToColor(
+                                                    FFAppState()
+                                                        .effectiveSecondaryHex),
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                              )
+                                            : valueOrDefault<Color>(
+                                                functions.hexToColor(
+                                                    FFAppState()
+                                                        .effectivePrimaryHex),
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                              ),
+                                        FlutterFlowTheme.of(context).primary,
+                                      ),
                                       borderRadius: BorderRadius.circular(24.0),
                                     ),
                                     child: Icon(
@@ -547,7 +607,7 @@ class _MenuSideBarExpandidoWidgetState
                       onTap: () async {
                         await showModalBottomSheet(
                           isScrollControlled: true,
-                          backgroundColor: Colors.transparent,
+                          backgroundColor: Color(0xE6000000),
                           enableDrag: false,
                           context: context,
                           builder: (context) {
@@ -575,52 +635,75 @@ class _MenuSideBarExpandidoWidgetState
                               16.0, 0.0, 12.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Container(
-                                width: 55.0,
-                                height: 55.0,
-                                clipBehavior: Clip.antiAlias,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                ),
-                                child: Image.asset(
-                                  'assets/images/NOVA_FOTO_PERFIL_70K.jpg',
-                                  fit: BoxFit.cover,
+                              AuthUserStreamWidget(
+                                builder: (context) => Container(
+                                  width: 55.0,
+                                  height: 55.0,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Image.network(
+                                    valueOrDefault<String>(
+                                      currentUserPhoto,
+                                      'https://firebasestorage.googleapis.com/v0/b/web-app-crm-prod.firebasestorage.app/o/logo-perfil.png?alt=media&token=4c48487c-04f3-46ee-8ac4-ea2af6eae56e',
+                                    ),
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
-                              Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Léo Moraes',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          font: GoogleFonts.roboto(
-                                            fontWeight: FontWeight.w500,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontStyle,
-                                          ),
-                                          fontSize: 15.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w500,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .fontStyle,
-                                        ),
-                                  ),
-                                  Text(
-                                    'leomoraesitu@hotmail.com',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          font: GoogleFonts.roboto(
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 0.0, 0.0, 0.0),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    AuthUserStreamWidget(
+                                      builder: (context) => Text(
+                                        currentUserDisplayName,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              font: GoogleFonts.roboto(
+                                                fontWeight: FontWeight.w500,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                              fontSize: 15.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w500,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
+                                      ),
+                                    ),
+                                    Text(
+                                      currentUserEmail,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            font: GoogleFonts.roboto(
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            fontSize: 9.0,
+                                            letterSpacing: 0.0,
                                             fontWeight:
                                                 FlutterFlowTheme.of(context)
                                                     .bodyMedium
@@ -630,27 +713,10 @@ class _MenuSideBarExpandidoWidgetState
                                                     .bodyMedium
                                                     .fontStyle,
                                           ),
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          fontSize: 10.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .fontWeight,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .fontStyle,
-                                        ),
-                                  ),
-                                ],
-                              ),
-                              Icon(
-                                Icons.exit_to_app,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 24.0,
+                                      overflow: TextOverflow.clip,
+                                    ),
+                                  ],
+                                ),
                               ),
                             ],
                           ),

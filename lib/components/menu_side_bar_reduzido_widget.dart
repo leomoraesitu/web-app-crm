@@ -1,9 +1,12 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/components/meu_perfil_widget.dart';
 import '/components/minha_empresa_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'menu_side_bar_reduzido_model.dart';
 export 'menu_side_bar_reduzido_model.dart';
 
@@ -16,7 +19,9 @@ class MenuSideBarReduzidoWidget extends StatefulWidget {
     required this.backgroundDash,
     required this.backgroundLeads,
     required this.backgroundMeuTime,
-  });
+    String? pathIcon,
+  }) : this.pathIcon = pathIcon ??
+            'https://firebasestorage.googleapis.com/v0/b/web-app-crm-dev.firebasestorage.app/o/upload-image.png?alt=media&token=a695e7d2-6616-4162-be19-3e965ae84899';
 
   final Widget? iconDashbord;
   final Widget? iconLeads;
@@ -24,6 +29,7 @@ class MenuSideBarReduzidoWidget extends StatefulWidget {
   final Color? backgroundDash;
   final Color? backgroundLeads;
   final Color? backgroundMeuTime;
+  final String pathIcon;
 
   @override
   State<MenuSideBarReduzidoWidget> createState() =>
@@ -56,6 +62,8 @@ class _MenuSideBarReduzidoWidgetState extends State<MenuSideBarReduzidoWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Padding(
       padding: EdgeInsets.all(12.0),
       child: Container(
@@ -80,58 +88,68 @@ class _MenuSideBarReduzidoWidgetState extends State<MenuSideBarReduzidoWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ClipRRect(
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                    child: ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
-                      child: Image.asset(
-                        Theme.of(context).brightness == Brightness.dark
-                            ? 'assets/images/Ativo_4.png'
-                            : 'assets/images/logo_nocode3.png',
-                        width: 35.0,
+                      child: Image.network(
+                        valueOrDefault<String>(
+                          widget.pathIcon,
+                          'https://firebasestorage.googleapis.com/v0/b/web-app-crm-prod.firebasestorage.app/o/upload-image.png?alt=media&token=8805cabf-ecc6-4821-8435-415ad3728358',
+                        ),
+                        width: 50.0,
                         height: 100.0,
                         fit: BoxFit.contain,
                       ),
                     ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 4.0, 0.0),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          FFAppState().menuExpandido = true;
-                          FFAppState().update(() {});
-                        },
-                        child: Container(
-                          height: 27.0,
-                          decoration: BoxDecoration(
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(16.0),
-                              bottomRight: Radius.circular(0.0),
-                              topLeft: Radius.circular(16.0),
-                              topRight: Radius.circular(0.0),
-                            ),
-                          ),
-                          child: Icon(
-                            Icons.keyboard_arrow_right,
-                            color: FlutterFlowTheme.of(context).primary,
-                            size: 23.0,
-                          ),
+                  ),
+                  InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      FFAppState().menuExpandido = true;
+                      FFAppState().update(() {});
+                    },
+                    child: Container(
+                      height: 27.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).primaryBackground,
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(16.0),
+                          bottomRight: Radius.circular(0.0),
+                          topLeft: Radius.circular(16.0),
+                          topRight: Radius.circular(0.0),
                         ),
                       ),
+                      child: Icon(
+                        Icons.keyboard_arrow_right,
+                        color: valueOrDefault<Color>(
+                          Theme.of(context).brightness == Brightness.dark
+                              ? valueOrDefault<Color>(
+                                  functions.hexToColor(
+                                      FFAppState().effectiveSecondaryHex),
+                                  FlutterFlowTheme.of(context).primary,
+                                )
+                              : valueOrDefault<Color>(
+                                  functions.hexToColor(
+                                      FFAppState().effectivePrimaryHex),
+                                  FlutterFlowTheme.of(context).primary,
+                                ),
+                          FlutterFlowTheme.of(context).primary,
+                        ),
+                        size: 15.0,
+                      ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
@@ -251,7 +269,7 @@ class _MenuSideBarReduzidoWidgetState extends State<MenuSideBarReduzidoWidget> {
                   onTap: () async {
                     await showModalBottomSheet(
                       isScrollControlled: true,
-                      backgroundColor: Colors.transparent,
+                      backgroundColor: Color(0xE5000000),
                       enableDrag: false,
                       context: context,
                       builder: (context) {
@@ -318,8 +336,25 @@ class _MenuSideBarReduzidoWidgetState extends State<MenuSideBarReduzidoWidget> {
                                     width: 40.0,
                                     height: 40.0,
                                     decoration: BoxDecoration(
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
+                                      color: valueOrDefault<Color>(
+                                        Theme.of(context).brightness ==
+                                                Brightness.dark
+                                            ? valueOrDefault<Color>(
+                                                functions.hexToColor(
+                                                    FFAppState()
+                                                        .effectiveSecondaryHex),
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                              )
+                                            : valueOrDefault<Color>(
+                                                functions.hexToColor(
+                                                    FFAppState()
+                                                        .effectivePrimaryHex),
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                              ),
+                                        FlutterFlowTheme.of(context).primary,
+                                      ),
                                       borderRadius: BorderRadius.circular(24.0),
                                     ),
                                     child: Icon(
@@ -403,8 +438,25 @@ class _MenuSideBarReduzidoWidgetState extends State<MenuSideBarReduzidoWidget> {
                                     width: 40.0,
                                     height: 40.0,
                                     decoration: BoxDecoration(
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
+                                      color: valueOrDefault<Color>(
+                                        Theme.of(context).brightness ==
+                                                Brightness.dark
+                                            ? valueOrDefault<Color>(
+                                                functions.hexToColor(
+                                                    FFAppState()
+                                                        .effectiveSecondaryHex),
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                              )
+                                            : valueOrDefault<Color>(
+                                                functions.hexToColor(
+                                                    FFAppState()
+                                                        .effectivePrimaryHex),
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                              ),
+                                        FlutterFlowTheme.of(context).primary,
+                                      ),
                                       borderRadius: BorderRadius.circular(24.0),
                                     ),
                                     child: Icon(
@@ -428,7 +480,7 @@ class _MenuSideBarReduzidoWidgetState extends State<MenuSideBarReduzidoWidget> {
                       onTap: () async {
                         await showModalBottomSheet(
                           isScrollControlled: true,
-                          backgroundColor: Colors.transparent,
+                          backgroundColor: Color(0xE5000000),
                           enableDrag: false,
                           context: context,
                           builder: (context) {
@@ -458,16 +510,21 @@ class _MenuSideBarReduzidoWidgetState extends State<MenuSideBarReduzidoWidget> {
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Container(
-                                width: 55.0,
-                                height: 55.0,
-                                clipBehavior: Clip.antiAlias,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                ),
-                                child: Image.asset(
-                                  'assets/images/NOVA_FOTO_PERFIL_70K.jpg',
-                                  fit: BoxFit.cover,
+                              AuthUserStreamWidget(
+                                builder: (context) => Container(
+                                  width: 55.0,
+                                  height: 55.0,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Image.network(
+                                    valueOrDefault<String>(
+                                      currentUserPhoto,
+                                      'https://firebasestorage.googleapis.com/v0/b/web-app-crm-prod.firebasestorage.app/o/logo-perfil.png?alt=media&token=4c48487c-04f3-46ee-8ac4-ea2af6eae56e',
+                                    ),
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
                             ],

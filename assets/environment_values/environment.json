@@ -1,0 +1,19 @@
+{
+  "appEnv": "production",
+"appName": "WebAppCRM",
+"appVersion": "0.3.0",
+"appBuild": "2026.03.07",
+"firebaseProjectId": "web-app-crm-prod",
+"firebaseRegion": "southamerica-east1",
+"firebaseStorageBucket": "gs://web-app-crm-prod.firebasestorage.app",
+"appBaseUrl": "https://webappcrm.app",
+"storageUsersPath": "users",
+"storageUploadsPath": "uploads",
+"storageLeadsPath": "leads",
+"featureAnalytics": "true",
+"featureAiAssistant": "false",
+"enableDebugLogs": "false",
+"enableCrashReporting": "true",
+"enablePerformanceMonitoring": "true",
+"featureDevBanner": "false"
+}
