@@ -1,4 +1,3 @@
-
 abstract class FFAppConstants {
   static const String kLoginEmailInput = 'login_email_input';
   static const String kLoginPasswordInput = 'login_password_input';
@@ -25,4 +24,5 @@ abstract class FFAppConstants {
   static const String kTeamCollaboratorButton = 'team_collaborator_button';
   static const String kTeamDeleteCollaboratorButton =
       'team_delete_collaborator_button';
+  static const String kRegistrationTab = 'registration_tab';
 }

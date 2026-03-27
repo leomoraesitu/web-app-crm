@@ -1406,7 +1406,7 @@ class _TimeWidgetState extends State<TimeWidget> with TickerProviderStateMixin {
                                       onPressed: () async {
                                         await Clipboard.setData(ClipboardData(
                                             text:
-                                                '${FFDevEnvironmentValues().appEnv == 'Production' ? 'https://webappcrm-leomoraesitu.flutterflow.app/login' : 'https://webappcrm-staging.flutterflow.app/login'}?empresaRef=${currentUserDocument?.empresaRef?.id}'));
+                                                'https://webappcrm-leomoraesitu.flutterflow.app/login?empresaRef=${currentUserDocument?.empresaRef?.id}'));
                                         await showDialog(
                                           context: context,
                                           builder: (alertDialogContext) {

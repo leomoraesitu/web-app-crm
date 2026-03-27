@@ -16,6 +16,8 @@ import 'package:provider/provider.dart';
 import 'login_model.dart';
 export 'login_model.dart';
 
+import '/core/auth/auth_facade.dart';
+
 class LoginWidget extends StatefulWidget {
   const LoginWidget({
     super.key,
@@ -297,6 +299,8 @@ class _LoginWidgetState extends State<LoginWidget>
                                                   text: 'Login',
                                                 ),
                                                 Tab(
+                                                  key: ValueKey(FFAppConstants
+                                                      .kRegistrationTab),
                                                   text: 'Cadastro',
                                                 ),
                                               ],
@@ -836,43 +840,83 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                           GoRouter.of(context)
                                                                               .prepareAuthEvent();
 
-                                                                          final user =
-                                                                              await authManager.signInWithEmail(
-                                                                            context,
-                                                                            _model.emailTextController.text,
-                                                                            _model.passwordTextController.text,
+                                                                          final auth =
+                                                                              context.read<AuthFacade>();
+
+                                                                          final result =
+                                                                              await auth.signIn(
+                                                                            context:
+                                                                                context,
+                                                                            email:
+                                                                                _model.emailTextController.text,
+                                                                            password:
+                                                                                _model.passwordTextController.text,
                                                                           );
-                                                                          if (user ==
-                                                                              null) {
+
+                                                                          if (!result
+                                                                              .success) {
+                                                                            await showDialog(
+                                                                              context: context,
+                                                                              builder: (_) => AlertDialog(
+                                                                                key: const ValueKey('error_dialog'),
+                                                                                title: Text(
+                                                                                  result.title,
+                                                                                  key: const ValueKey('error_dialog_title'),
+                                                                                ),
+                                                                                content: Text(
+                                                                                  result.message,
+                                                                                  key: const ValueKey('error_dialog_message'),
+                                                                                ),
+                                                                                actions: [
+                                                                                  TextButton(
+                                                                                    key: const ValueKey('auth_result_dialog_ok_button'),
+                                                                                    onPressed: () => Navigator.pop(context),
+                                                                                    child: const Text('OK'),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            );
                                                                             return;
                                                                           }
 
-                                                                          if (currentUserReference?.path != null &&
-                                                                              currentUserReference?.path != '') {
-                                                                            safeSetState(() {
-                                                                              _model.emailTextController?.clear();
-                                                                              _model.passwordTextController?.clear();
-                                                                            });
+                                                                          safeSetState(
+                                                                              () {
+                                                                            _model.emailTextController?.clear();
+                                                                            _model.passwordTextController?.clear();
+                                                                          });
 
-                                                                            context.pushNamedAuth(DashboardWidget.routeName,
-                                                                                context.mounted);
-                                                                          } else {
-                                                                            await showDialog(
-                                                                              context: context,
-                                                                              builder: (alertDialogContext) {
-                                                                                return AlertDialog(
-                                                                                  title: Text('Erro!'),
-                                                                                  content: Text('Erro desconhecido ao fazer login'),
-                                                                                  actions: [
-                                                                                    TextButton(
-                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                      child: Text('Ok'),
-                                                                                    ),
-                                                                                  ],
-                                                                                );
-                                                                              },
+                                                                          if (result
+                                                                              .navigateToDashboard) {
+                                                                            context.pushNamedAuth(
+                                                                              DashboardWidget.routeName,
+                                                                              context.mounted,
                                                                             );
+                                                                            return;
                                                                           }
+
+                                                                          await showDialog(
+                                                                            context:
+                                                                                context,
+                                                                            builder: (_) =>
+                                                                                AlertDialog(
+                                                                              key: const ValueKey('error_dialog'),
+                                                                              title: Text(
+                                                                                'Erro!',
+                                                                                key: const ValueKey('error_dialog_title'),
+                                                                              ),
+                                                                              content: Text(
+                                                                                'Erro desconhecido ao fazer login',
+                                                                                key: const ValueKey('error_dialog_message'),
+                                                                              ),
+                                                                              actions: [
+                                                                                TextButton(
+                                                                                  key: const ValueKey('auth_result_dialog_ok_button'),
+                                                                                  onPressed: () => Navigator.pop(context),
+                                                                                  child: const Text('OK'),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          );
                                                                         },
                                                                   text: 'Login',
                                                                   options:
@@ -2217,9 +2261,11 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                             .validate()) {
                                                                       return;
                                                                     }
+
                                                                     GoRouter.of(
                                                                             context)
                                                                         .prepareAuthEvent();
+
                                                                     if (_model
                                                                             .passwordCreateTextController
                                                                             .text !=
@@ -2229,100 +2275,135 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                       ScaffoldMessenger.of(
                                                                               context)
                                                                           .showSnackBar(
-                                                                        SnackBar(
+                                                                        const SnackBar(
                                                                           content:
-                                                                              Text(
-                                                                            'Passwords don\'t match!',
-                                                                          ),
+                                                                              Text('Passwords don\'t match!'),
                                                                         ),
                                                                       );
                                                                       return;
                                                                     }
 
-                                                                    final user =
-                                                                        await authManager
-                                                                            .createAccountWithEmail(
-                                                                      context,
-                                                                      _model
+                                                                    final auth =
+                                                                        context.read<
+                                                                            AuthFacade>();
+
+                                                                    final result =
+                                                                        await auth
+                                                                            .createAccount(
+                                                                      context:
+                                                                          context,
+                                                                      email: _model
                                                                           .emailCreateTextController
                                                                           .text,
-                                                                      _model
+                                                                      password: _model
                                                                           .passwordCreateTextController
                                                                           .text,
+                                                                      displayName: _model
+                                                                          .nameCreateTextController
+                                                                          .text,
+                                                                      empresaRef:
+                                                                          widget
+                                                                              .empresaRef,
                                                                     );
-                                                                    if (user ==
-                                                                        null) {
+
+                                                                    if (!mounted)
                                                                       return;
-                                                                    }
 
-                                                                    await UsersRecord
-                                                                        .collection
-                                                                        .doc(user
-                                                                            .uid)
-                                                                        .update(
-                                                                            createUsersRecordData(
-                                                                          isAdmin:
-                                                                              true,
-                                                                          totalLeads:
-                                                                              0,
-                                                                          totalReunioes:
-                                                                              0,
-                                                                          totalLigacoes:
-                                                                              0,
-                                                                          totalVendas:
-                                                                              0,
-                                                                          totalPerdidos:
-                                                                              0,
-                                                                          displayName: _model
-                                                                              .nameCreateTextController
-                                                                              .text,
-                                                                          empresaRef:
-                                                                              FFAppState().empresaRef,
-                                                                        ));
-
-                                                                    if (widget.empresaRef?.id ==
-                                                                            null ||
-                                                                        widget.empresaRef?.id ==
-                                                                            '') {
+                                                                    if (!result
+                                                                        .success) {
                                                                       await showDialog(
                                                                         context:
                                                                             context,
                                                                         builder:
-                                                                            (alertDialogContext) {
-                                                                          return AlertDialog(
-                                                                            title:
-                                                                                Text('Sucesso!'),
-                                                                            content:
-                                                                                Text('Usuário criado'),
-                                                                            actions: [
-                                                                              TextButton(
-                                                                                onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                child: Text('Ok'),
-                                                                              ),
-                                                                            ],
-                                                                          );
-                                                                        },
+                                                                            (_) =>
+                                                                                AlertDialog(
+                                                                          key: const ValueKey(
+                                                                              'error_dialog'),
+                                                                          title:
+                                                                              Text(
+                                                                            result.title,
+                                                                            key:
+                                                                                const ValueKey('error_dialog_title'),
+                                                                          ),
+                                                                          content:
+                                                                              Text(
+                                                                            result.message,
+                                                                            key:
+                                                                                const ValueKey('error_dialog_message'),
+                                                                          ),
+                                                                          actions: [
+                                                                            TextButton(
+                                                                              key: const ValueKey('auth_result_dialog_ok_button'),
+                                                                              onPressed: () => Navigator.pop(context),
+                                                                              child: const Text('OK'),
+                                                                            ),
+                                                                          ],
+                                                                        ),
                                                                       );
-                                                                      safeSetState(
-                                                                          () {
-                                                                        _model
-                                                                            .nameCreateTextController
-                                                                            ?.clear();
-                                                                        _model
-                                                                            .emailCreateTextController
-                                                                            ?.clear();
-                                                                        _model
-                                                                            .passwordCreateTextController
-                                                                            ?.clear();
-                                                                        _model
-                                                                            .passwordConfirmCreateTextController
-                                                                            ?.clear();
-                                                                      });
+                                                                      return;
+                                                                    }
+
+                                                                    await showDialog(
+                                                                      context:
+                                                                          context,
+                                                                      builder:
+                                                                          (_) =>
+                                                                              AlertDialog(
+                                                                        key: const ValueKey(
+                                                                            'error_dialog'),
+                                                                        title:
+                                                                            Text(
+                                                                          result
+                                                                              .title,
+                                                                          key: const ValueKey(
+                                                                              'error_dialog_title'),
+                                                                        ),
+                                                                        content:
+                                                                            Text(
+                                                                          result
+                                                                              .message,
+                                                                          key: const ValueKey(
+                                                                              'error_dialog_message'),
+                                                                        ),
+                                                                        actions: [
+                                                                          TextButton(
+                                                                            key:
+                                                                                const ValueKey('auth_result_dialog_ok_button'),
+                                                                            onPressed: () =>
+                                                                                Navigator.pop(context),
+                                                                            child:
+                                                                                const Text('OK'),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    );
+
+                                                                    if (!mounted)
+                                                                      return;
+
+                                                                    safeSetState(
+                                                                        () {
+                                                                      _model
+                                                                          .nameCreateTextController
+                                                                          ?.clear();
+                                                                      _model
+                                                                          .emailCreateTextController
+                                                                          ?.clear();
+                                                                      _model
+                                                                          .passwordCreateTextController
+                                                                          ?.clear();
+                                                                      _model
+                                                                          .passwordConfirmCreateTextController
+                                                                          ?.clear();
+                                                                    });
+
+                                                                    if (result
+                                                                        .openNovaEmpresaFlow) {
                                                                       await showModalBottomSheet(
                                                                         isScrollControlled:
                                                                             true,
                                                                         backgroundColor:
-                                                                            Color(0xE6000000),
+                                                                            const Color(0xE6000000),
                                                                         enableDrag:
                                                                             false,
                                                                         context:
@@ -2347,78 +2428,19 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                       ).then((value) =>
                                                                           safeSetState(
                                                                               () {}));
-                                                                    } else if (currentUserReference?.path ==
-                                                                            null ||
-                                                                        currentUserReference?.path ==
-                                                                            '') {
-                                                                      await showDialog(
-                                                                        context:
-                                                                            context,
-                                                                        builder:
-                                                                            (alertDialogContext) {
-                                                                          return AlertDialog(
-                                                                            title:
-                                                                                Text('Erro'),
-                                                                            content:
-                                                                                Text('Erro desconhecido ao criar usuário'),
-                                                                            actions: [
-                                                                              TextButton(
-                                                                                onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                child: Text('Ok'),
-                                                                              ),
-                                                                            ],
-                                                                          );
-                                                                        },
-                                                                      );
-                                                                    } else {
-                                                                      await currentUserReference!
-                                                                          .update(
-                                                                              createUsersRecordData(
-                                                                        empresaRef:
-                                                                            widget.empresaRef,
-                                                                        isAdmin:
-                                                                            false,
-                                                                      ));
-                                                                      await showDialog(
-                                                                        context:
-                                                                            context,
-                                                                        builder:
-                                                                            (alertDialogContext) {
-                                                                          return AlertDialog(
-                                                                            title:
-                                                                                Text('Sucesso!'),
-                                                                            content:
-                                                                                Text('Usuário criado'),
-                                                                            actions: [
-                                                                              TextButton(
-                                                                                onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                child: Text('Ok'),
-                                                                              ),
-                                                                            ],
-                                                                          );
-                                                                        },
-                                                                      );
-                                                                      safeSetState(
-                                                                          () {
-                                                                        _model
-                                                                            .nameCreateTextController
-                                                                            ?.clear();
-                                                                        _model
-                                                                            .emailCreateTextController
-                                                                            ?.clear();
-                                                                        _model
-                                                                            .passwordCreateTextController
-                                                                            ?.clear();
-                                                                        _model
-                                                                            .passwordConfirmCreateTextController
-                                                                            ?.clear();
-                                                                      });
 
-                                                                      context.pushNamedAuth(
-                                                                          DashboardWidget
-                                                                              .routeName,
-                                                                          context
-                                                                              .mounted);
+                                                                      return;
+                                                                    }
+
+                                                                    if (result
+                                                                        .navigateToDashboard) {
+                                                                      context
+                                                                          .pushNamedAuth(
+                                                                        DashboardWidget
+                                                                            .routeName,
+                                                                        context
+                                                                            .mounted,
+                                                                      );
                                                                     }
                                                                   },
                                                             text: 'Criar conta',
