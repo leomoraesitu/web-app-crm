@@ -8,6 +8,11 @@
 ![Architecture](https://img.shields.io/badge/Architecture-Multi--Tenant-orange?style=for-the-badge)
 
 ---
+<p align="center">
+  <img src="./docs/design/assets/banner-readme.png" alt="Web App CRM Banner" width="100%">
+</p>
+
+---
 
 ## 🚀 Aplicação Publicada
 
