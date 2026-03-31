@@ -27,7 +27,7 @@
 ## 🎬 Demonstração
 
 <p align="center">
-  <img src="docs/imgs/demo/webappcrm-demo.gif" width="70%">
+  <img src="docs/imgs/demo/demo-sprint-4.gif" width="70%">
 </p>
 
 ---
